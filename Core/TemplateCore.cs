@@ -4,36 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dal;
-using Helper;
 using Model;
 using Newtonsoft.Json;
 
 namespace Core
 {
-    public class ClienteCore
+    public class TemplateCore
     {
-        public ClienteModel Get(int id)
+        public TemplateModel Get(int Id)
         {
             try
             {
-                var tabla = ClienteDal.GetCliente(id);
-                ClienteModel cliente = Helper.Utilidades.ToList<ClienteModel>(tabla).FirstOrDefault();
-                return cliente;
+                var tabla = TemplateDal.Get(Id);
+                TemplateModel model = Helper.Utilidades.ToList<TemplateModel>(tabla).FirstOrDefault();
+                return model;
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-
         }
-        public List<ClienteModel> GetAll()
+        public List<TemplateModel> GetAll()
         {
-
             try
             {
-                var tabla = ClienteDal.GetCliente(Helper.Constantes.all);
-                var lista = tabla.ToList<ClienteModel>();
+                var tabla = TemplateDal.Get(Helper.Constantes.all);
+                var lista = Helper.Utilidades.ToList<TemplateModel>(tabla);
                 return lista;
             }
             catch (Exception)
@@ -41,24 +39,24 @@ namespace Core
 
                 throw;
             }
-
         }
-        public int Add(ClienteModel model)
+        public void Add(TemplateModel model)
         {
             try
             {
-                return Dal.ClienteDal.Add(model);
+                TemplateDal.Add(model);
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
-        public void Modify(ClienteModel model)
+        public void Modify(TemplateModel model)
         {
             try
             {
-                ClienteDal.Modify(model);
+                TemplateDal.Modify(model);
             }
             catch (Exception)
             {
@@ -70,7 +68,7 @@ namespace Core
         {
             try
             {
-                ClienteDal.Delete(Id);
+                TemplateDal.Delete(Id);
             }
             catch (Exception)
             {
@@ -78,6 +76,5 @@ namespace Core
                 throw;
             }
         }
-
     }
 }

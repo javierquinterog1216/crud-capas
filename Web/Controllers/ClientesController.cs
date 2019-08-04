@@ -23,7 +23,7 @@ namespace Web.Controllers
                 return lista;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -39,7 +39,7 @@ namespace Web.Controllers
                 var model = _core.Get(id);
                 return model;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;

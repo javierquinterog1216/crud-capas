@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ClienteCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplateCore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
